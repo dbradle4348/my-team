@@ -1,5 +1,5 @@
 const Engineer = require('../lib/Engineer.js')
-const Employee = require('../lib/Employee.js')
+
 const { test, expect } = require('@jest/globals')
 
 test('creates an Engineer object with github username and engineer role', () => {
