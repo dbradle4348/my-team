@@ -1,7 +1,6 @@
 const Employee = require('../lib/Employee.js');
 
 test('creates an employee object', () => {
- 
   const testId = '100'
   const testEmail = 'fake@email.com'
   const testRole = 'Employee'
