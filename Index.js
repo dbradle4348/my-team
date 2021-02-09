@@ -9,53 +9,7 @@ const Manager = require('./lib/Manager');
 
 const employees = []
 
-const addManager = () => {
-  return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'name',
-        message: "Enter the manager's name (Required):",
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('Please enter a name!');
-            return false;
-          }
-        }
-      },
-      {
-            type: 'input',
-            name: 'id',
-            message: 'Manager Employee ID (Required):',
-            validate: IdInput => {
-              if (IdInput) {
-                return true;
-              } else {
-                console.log('Please enter an ID!');
-                return false;
-              }
-            }
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'Manager Email (Required):',
-            validate: EmailInput => {
-              if (EmailInput) {
-                return true;
-              } else {
-                console.log('Please enter an Email!');
-                return false;
-              }
-            }
-        }
-        ])
-      .then(answers =>
-        new Manager(answers),
-        employees.push(Manager),
-        trafficControl())
-      };
+
 
 const addManager = () => {
   return inquirer.prompt([
@@ -112,11 +66,12 @@ const addManager = () => {
           }
       }
         ])
-      .then(answers =>
-        new Manager(answers),
-        employees.push(Manager),
-        trafficControl())
-      };
+      .then(answers => {
+        new Manager(answers)
+        employees.push(Manager)
+        trafficControl()
+      })
+    }
 
 const addEngineer = () => {
   return inquirer.prompt([
@@ -173,11 +128,74 @@ const addEngineer = () => {
     }
   }
 ])
-        .then(answers =>
-        new Engineer(answers),
-        employees.push(Engineer),
-        trafficControl());
-      };
+        .then(answers => {
+        new Engineer(answers)
+        employees.push(Engineer)
+        trafficControl();
+        })
+      }
+      
+const addIntern = () => {
+  return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: "What is the manager's name? (Required)",
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('Please enter a name!');
+            return false;
+          }
+        }
+      },
+      {
+            type: 'input',
+            name: 'id',
+            message: "'What is the intern's employee ID? (Required)",
+            validate: IdInput => {
+              if (IdInput) {
+                return true;
+              } else {
+                console.log('Please enter an ID!');
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the intern's email? (Required)",
+            validate: EmailInput => {
+              if (EmailInput) {
+                return true;
+              } else {
+                console.log('Please enter an email!');
+                return false;
+              }
+            }
+        },
+        {
+          type: 'input',
+          name: 'school',
+          message: "What is the intern's school?",
+          validate: schoolInput => {
+            if (schoolInput) {
+              return true;
+            } else {
+              console.log('Please enter a school!');
+              return false;
+            }
+          }
+      }
+        ])
+      .then(answers => {
+        new Manager(answers)
+        employees.push(Manager)
+        trafficControl()
+      })
+    }
       
       
 
@@ -185,7 +203,7 @@ const addEngineer = () => {
     return inquirer
     .prompt({        
         type: 'list',
-        name = 'newTeamMember',          
+        name : 'newTeamMember',          
         message: "Would you like to add another team member?",
         choices: ['Manager', 'Engineer', 'Intern', 'Finished! Create my page']
       })
@@ -205,7 +223,7 @@ const addEngineer = () => {
          }
        )};
     
-   
+   addManager();
       
     
  
