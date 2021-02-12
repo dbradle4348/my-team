@@ -192,7 +192,7 @@ const addIntern = () => {
         ])
       .then(answers => {
         new Manager(answers)
-        employees.push(Manager)
+        employees.push(Intern)
         trafficControl()
       })
     }

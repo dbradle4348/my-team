@@ -3,19 +3,13 @@ const fs = require('fs');
 // writing files
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./dist/index.html', fileContent, err => {
-      if (err) {
-        reject(err);
-        return;
-      }
-
-      resolve({
-        ok: true,
-        message: 'File created!'
-      });
-    });
+     fs.writeFile('./index.html', pageHTML, err => {
+       if (err) throw new Error(err);
+       console.log('Page created! Check out index.html in this directory to see it!');
+     });
   });
 };
+
 
 // copying file
 const copyFile = () => {
