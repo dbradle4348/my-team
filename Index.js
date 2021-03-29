@@ -222,6 +222,7 @@ const addIntern = () => {
          else {
            
           
+          
           generatePage();
            
            buildTeam();
@@ -235,7 +236,7 @@ function buildTeam() {
          if(!fs.existsSync(OUTPUT_DIR)) {
            fs.mkdirSync(OUTPUT_DIR)
          }
-         fs.writeFileSync(outputPath, render(employees), "utf-8")
+         fs.writeFileSync(outputPath, generatePage(employees), "utf-8")
         .catch() 
           }
 addManager();

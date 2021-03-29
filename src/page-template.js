@@ -1,8 +1,11 @@
+
+
+
 const generatePage = employees => {
     if (!employees) {
       return '';
     }
-  
+
 
 // create the manager html
 const generateManager = manager => {
@@ -20,13 +23,13 @@ const generateManager = manager => {
       </ul>
   </div>
 </div>
-  
+
   `
 }
 
 // create the html for engineer
 const generateEngineer = engineer => {
-  return ` 
+  return `
   <div class="card employee-card">
   <div class="card-header">
       <h2 class="card-title">${engineer.getName()}</h2>
@@ -43,7 +46,7 @@ const generateEngineer = engineer => {
 }
 // create the html for intern
 const generateIntern = intern => {
-  return ` 
+  return `
   <div class="card employee-card">
   <div class="card-header">
       <h2 class="card-title">${intern.getName()}</h2>
@@ -66,7 +69,7 @@ html.push(employees
   .map(manager => generateManager(manager))
   );
   // need same thing for the other ones
-  
+
 html.push(employees
   .filter(employee => employee.getRole() === "Engineer")
   .map(engineer => generateEngineer(engineer))
@@ -77,14 +80,14 @@ html.push(employees
   .map(intern => generateIntern(intern))
   );
 
-  function buildTeam() {
-            // create some kind of an output directory if a path doesn't exist
-         if(!fs.existsSync(OUTPUT_DIR)) {
-           fs.mkdirSync(OUTPUT_DIR)
-         }
-         fs.writeFileSync(outputPath, render(employees), "utf-8")
-        .catch(err) 
-          }
+  // function buildTeam() {
+  //           // create some kind of an output directory if a path doesn't exist
+  //        if(!fs.existsSync(OUTPUT_DIR)) {
+  //          fs.mkdirSync(OUTPUT_DIR)
+  //        }
+  //        fs.writeFileSync(outputPath, render(employees), "utf-8")
+  //       .catch(err)
+  //         }
 
 return html.join("")
 
@@ -98,10 +101,10 @@ return html.join("")
 
 module.exports = employees => {
   return `
-  
+
   <!DOCTYPE html>
 
-<head> 
+<head>
 
 
 </head>
@@ -118,4 +121,3 @@ ${generatePage(employees)}
 
 
 
- 
