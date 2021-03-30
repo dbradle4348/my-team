@@ -70,7 +70,7 @@ const addManager = () => {
       },
     ])
     .then((answers) => {
-      employees.push(new Manager(answers));
+      employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
       trafficControl();
     });
 };
@@ -119,10 +119,10 @@ const addEngineer = () => {
       },
       {
         type: "input",
-        name: "githubUsername",
+        name: "github",
         message: "What is the engineer's GitHub Username? (Required):",
-        validate: (usernameInput) => {
-          if (usernameInput) {
+        validate: (githubInput) => {
+          if (githubInput) {
             return true;
           } else {
             console.log("Please enter the Github Username!");
@@ -131,11 +131,11 @@ const addEngineer = () => {
         },
       },
     ])
-    .then((answers) => {
-      const newEngineer = new Engineer(answers);
-      employees.push(newEngineer);
-      trafficControl();
-    });
+     .then((answers) => {
+           const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+           employees.push(newEngineer);
+           trafficControl();
+         });
 };
 
 const addIntern = () => {
@@ -195,7 +195,7 @@ const addIntern = () => {
       },
     ])
     .then((answers) => {
-      employees.push(new Intern(answers));
+      employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
       trafficControl();
     });
 };

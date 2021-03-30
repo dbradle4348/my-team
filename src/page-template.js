@@ -61,6 +61,7 @@ const generatePage = (employees) => {
   </div>
 </div>`;
   };
+  
   // push, filter and join the 3 htmls
   console.log(employees);
   const html = [];
@@ -71,8 +72,7 @@ const generatePage = (employees) => {
       .map((manager) => generateManager(manager))
       .join('')
   );
-  // need same thing for the other ones
-console.log(html);
+
   html.push(
     employees
       .filter((employee) => employee.getRole() === "Engineer")
@@ -87,20 +87,10 @@ console.log(html);
       .join('')
   );
 
-  // function buildTeam() {
-  //           // create some kind of an output directory if a path doesn't exist
-  //        if(!fs.existsSync(OUTPUT_DIR)) {
-  //          fs.mkdirSync(OUTPUT_DIR)
-  //        }
-  //        fs.writeFileSync(outputPath, render(employees), "utf-8")
-  //       .catch(err)
-  //         }
-
   return html.join("");
 };
 
-// some kind of export function to generate the entire page
-// here you'll have your doctype and head, body... main html
+//main template
 
 module.exports = (employees) => {
   return `

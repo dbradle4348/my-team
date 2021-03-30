@@ -23,7 +23,7 @@ test('getSchool returns school', () => {
 test('getRole returns Intern', () => {
     const testRole = 'Intern'
 
-    const intern = new Intern('Dave', '3', 'fake@fake.com', 'school', 'testRole');
+    const intern = new Intern('Dave', '3', 'fake@fake.com', 'school', testRole);
 
-    expect(intern.getRole()).toBe('testRole');
+    expect(intern.getRole()).toBe('Intern');
 });
