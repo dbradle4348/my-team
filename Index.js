@@ -144,7 +144,7 @@ const addIntern = () => {
       {
         type: "input",
         name: "name",
-        message: "What is the manager's name? (Required)",
+        message: "What is the Intern's name? (Required)",
         validate: (nameInput) => {
           if (nameInput) {
             return true;
